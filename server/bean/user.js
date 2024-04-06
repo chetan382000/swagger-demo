@@ -151,13 +151,10 @@ const getForgotPassword = async (req, res) => {
 
 async function forgotPassword(req, res, next) {
   try {
-   console.log('start')
-
     let email = req.body.email;
-   console.log(email)
+    
     let userEmail = await User.findOne({ email:email });
     if (!userEmail) return res.status(404).json({ message: "User not found :(" });
-    console.log('1')
 
     let tokenGenerate = await jwt.sign({userId: userEmail._id,},JWTSECRETKEY);
    

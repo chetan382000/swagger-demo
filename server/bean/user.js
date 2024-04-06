@@ -201,6 +201,9 @@ async function resetPassword(req, res, next) {
   }
 }
 
+// forgot  password with OTP verify
+
+
 module.exports = {
   register,
   login,
